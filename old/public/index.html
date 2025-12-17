@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DUHIGURE MU MIRYANGO | Family Performance Contracts</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    body { font-family: Segoe UI, Tahoma, sans-serif; }
+    .page-section { display:none; }
+    .page-section.active { display:block; }
+    footer { background:#191a19; color:#fff; padding:30px 0; }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#" onclick="showSection('home')">DUHIGURE MU MIRYANGO</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('home')">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('about')">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('guide')">User Guide</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('register')">Registration</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="showSection('dashboard')">Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="page-section active pt-5 mt-5">
+  <div class="container text-center">
+    <h1 class="fw-bold">DUHIGURE MU MIRYANGO</h1>
+    <p class="lead">Family Performance Contract System – Kibungo Sector</p>
+    <button class="btn btn-success" onclick="showSection('register')">Register Family</button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page-section pt-5 mt-5">
+  <div class="container">
+    <h2>About the Program</h2>
+    <p>
+      <strong>DUHIGURE MU MIRYANGO</strong> is a family-based performance contract system
+      designed to improve socio-economic development at household level.
+    </p>
+    <ul>
+      <li>Each family is registered with all members</li>
+      <li>Family goals (Imihigo) are defined and monitored</li>
+      <li>Each member has individual performance duties</li>
+      <li>Authorities and Digital Youth (Intore mu Ikoranabuhanga) can assist families</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GUIDE -->
+<section id="guide" class="page-section pt-5 mt-5">
+  <div class="container">
+    <h2>User Guide</h2>
+    <ol>
+      <li>Register your family information</li>
+      <li>Add all family members</li>
+      <li>Define family goals (Imihigo)</li>
+      <li>Assign individual responsibilities</li>
+      <li>Track progress through the dashboard</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REGISTRATION -->
+<section id="register" class="page-section pt-5 mt-5">
+  <div class="container">
+    <h2>Family Registration Form</h2>
+    <form id="familyForm" class="needs-validation" novalidate>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Family Code</label>
+          <input type="text" class="form-control" required />
+          <div class="invalid-feedback">Required field</div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Family Name</label>
+          <input type="text" class="form-control" required />
+        </div>
+      </div>
+      <button class="btn btn-primary">Save Family</button>
+    </form>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" class="page-section pt-5 mt-5">
+  <div class="container">
+    <h2>Family Dashboard</h2>
+    <div class="row">
+      <div class="col-md-4"><div class="alert alert-success">Members: <span id="membersCount">0</span></div></div>
+      <div class="col-md-4"><div class="alert alert-info">Family Goals: 0</div></div>
+      <div class="col-md-4"><div class="alert alert-warning">Progress: 0%</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="mt-5">
+  <div class="container text-center">
+    <p>&copy; 2024 DUHIGURE MU MIRYANGO – Kibungo Sector</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0,0);
+  }
+
+  // Bootstrap validation
+  (() => {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
+</body>
+</html>
