@@ -1,204 +1,249 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DUHIGURE MU MIRYANGO - Kibungo Sector</title>
+    <title>DUHIGURE MU MIRYANGO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .hero-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 80px 0;
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --bg-light: #f8f9fa;
+            --bg-dark: #0f172a;
+            --text-light: #fff;
         }
-        .feature-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+        [data-theme="dark"] {
+            background: var(--bg-dark) !important;
+            color: var(--text-light) !important;
         }
-        .feature-card:hover {
-            transform: translateY(-5px);
+        body {
+            background: var(--bg-light);
+            transition: 0.3s;
         }
+        /* NAV */
         .navbar {
-            background-color: #1e3c72;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
-        .btn-primary {
-            background-color: #2a5298;
-            border: none;
+        /* HERO */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.65)), url("https://static01.nyt.com/images/2018/11/24/fashion/24-fisherwomen-rwanda-360-1/merlin_147174660_6e5e0881-fe3d-4eb9-8c92-d5fce2277607-superJumbo.jpg?auto=format&fit=crop&w=1800&q=80");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
         }
-        .btn-primary:hover {
-            background-color: #1e3c72;
+        .hero:hover {
+            background-position: 50% 60%;
+            transition: background-position 4s ease;
+        }
+        /* IMAGE CARDS */
+        .img-card {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+        .img-card img {
+            transition: transform .5s;
+        }
+        .img-card:hover img {
+            transform: scale(1.1);
+        }
+        footer {
+            background: #020617;
+            color: #94a3b8;
+        }
+        .guide-section {
+            background: #f0f4f8;
+            padding: 40px 0;
+        }
+        .social-feeds {
+            padding: 40px 0;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">DUHIGURE MU MIRYANGO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#guide">Guide</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-primary text-white ms-2" href="#system">Access System</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <section class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-4 fw-bold mb-4">DUHIGURE MU MIRYANGO</h1>
-            <p class="lead mb-4">Family-Level Performance Contract System for Kibungo Sector</p>
-            <p class="mb-4">Empowering families to achieve collective success through shared responsibilities</p>
-            <a href="#system" class="btn btn-light btn-lg">Enter System</a>
+<nav class="navbar navbar-dark sticky-top">
+    <div class="container-fluid">
+        <span class="navbar-brand fw-bold">🏠 DUHIGURE</span>
+        <div class="d-flex gap-2">
+            <select id="lang" class="form-select form-select-sm">
+                <option value="en">ENGLISH</option>
+                <option value="rw">KINYARWANDA</option>
+            </select>
+            <button id="themeToggle" class="btn btn-outline-light btn-sm">🌙</button>
         </div>
-    </section>
+    </div>
+</nav>
 
-    <section id="about" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">About DUHIGURE MU MIRYANGO</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <h4>Program Overview</h4>
-                    <p>DUHIGURE MU MIRYANGO is a Performance Contract system designed at the family level. It enables families to establish shared commitments and track collective achievements while recognizing individual family member contributions.</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h4>Kibungo Sector Initiative</h4>
-                    <p>This application supports Kibungo Sector's population development goals by providing a structured framework for family-level performance management and accountability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="hero">
+    <div>
+        <h1 data-i18n="title" class="display-4 fw-bold">DUHIGURE MU MIRYANGO</h1>
+        <p data-i18n="subtitle" class="lead mb-4">Family-Level Performance Contract System</p>
+        <a href="system.html" class="btn btn-light btn-lg" data-i18n="enter">Enter System</a>
+    </div>
+</section>
 
-    <section id="features" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">System Features</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="feature-card card p-4">
-                        <h5>Family Information</h5>
-                        <p>Record complete information for each family member and manage all household data in one centralized system.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-card card p-4">
-                        <h5>Individual Performance Duties</h5>
-                        <p>Each family member has specific sub-performance duties that contribute to the family's overall Performance Contract (Imihigo).</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="feature-card card p-4">
-                        <h5>Shared Family Goals</h5>
-                        <p>Set family-level performance duties with shared responsibility among all family members for collective achievement.</p>
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card img-card">
+                    <img src="https://www.newtimes.co.rw/uploads/imported_images/files/main/articles/2011/03/16/-Congolesewomen.jpg" class="img-fluid">
+                    <div class="card-body">
+                        <h5 data-i18n="f1">Family Registration</h5>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="guide" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">How to Use the System</h2>
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="accordion" id="guideAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#guide1">
-                                    Getting Started
-                                </button>
-                            </h2>
-                            <div id="guide1" class="accordion-collapse collapse show" data-bs-parent="#guideAccordion">
-                                <div class="accordion-body">
-                                    Access the system through the link below. You can enter data yourself or seek assistance from an Intore mu Ikoranabuhanga (technology facilitator) or your administrative authority.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#guide2">
-                                    Family Registration
-                                </button>
-                            </h2>
-                            <div id="guide2" class="accordion-collapse collapse" data-bs-parent="#guideAccordion">
-                                <div class="accordion-body">
-                                    Register your family and enter detailed information for each family member including names, roles, and responsibilities.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#guide3">
-                                    Setting Performance Goals
-                                </button>
-                            </h2>
-                            <div id="guide3" class="accordion-collapse collapse" data-bs-parent="#guideAccordion">
-                                <div class="accordion-body">
-                                    Define individual performance duties for each member and establish shared family performance goals (Imihigo).
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#guide4">
-                                    Tracking Progress
-                                </button>
-                            </h2>
-                            <div id="guide4" class="accordion-collapse collapse" data-bs-parent="#guideAccordion">
-                                <div class="accordion-body">
-                                    Monitor individual and family performance, track achievements, and update progress regularly.
-                                </div>
-                            </div>
-                        </div>
+            <div class="col-md-4 mb-4">
+                <div class="card img-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShV_U0jjQs4Yh6iuPep1EO7D3Q5KFCVejcbw&s" class="img-fluid">
+                    <div class="card-body">
+                        <h5 data-i18n="f2">Performance Duties</h5>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="system" class="py-5 bg-light">
-        <div class="container text-center">
-            <h2 class="mb-5">Access the System</h2>
-            <p class="mb-4">Ready to get started? Access the DUHIGURE MU MIRYANGO system to manage your family's performance contract.</p>
-            <a href="system.html" class="btn btn-primary btn-lg me-3">Enter System</a>
-            <button class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#helpModal">Need Help?</button>
-        </div>
-    </section>
-
-    <footer class="bg-dark text-white py-4 text-center">
-        <div class="container">
-            <p>&copy; 2024 DUHIGURE MU MIRYANGO - Kibungo Sector. All rights reserved.</p>
-            <p>For support: <a href="mailto:support@duhigure.rw" class="text-white">support@duhigure.rw</a></p>
-        </div>
-    </footer>
-
-    <div class="modal fade" id="helpModal" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Need Assistance?</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>You can get help from:</p>
-                    <ul>
-                        <li>An Intore mu Ikoranabuhanga (technology facilitator) in your area</li>
-                        <li>Your local administrative authority</li>
-                        <li>Contact our support team at support@duhigure.rw</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="col-md-4 mb-4">
+                <div class="card img-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO9CtjsQcEZFd3jFQLNIW1oXNUjRg-LMWHnQ&s" class="img-fluid">
+                    <div class="card-body">
+                        <h5 data-i18n="f3">Progress Tracking</h5>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Program Info and Guide Section with Mimic Text, Image, Video -->
+<section class="guide-section">
+    <div class="container">
+        <h2 data-i18n="guideTitle" class="text-center mb-4">About the Program & System Guide</h2>
+        <p data-i18n="guideText">DUHIGURE MU MIRYANGO is a family-based performance contract system aimed at developing communities in Kibungo sector. Families set shared goals (imihigo) and individual duties to achieve collective progress. The system is scalable to NGOMA District and beyond.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://archleague.org/wp-content/uploads/2007/02/GA-Collaborative_Masoro-Village-Project_Exterior_01-1.jpg?auto=format&fit=crop&w=800&q=80" class="img-fluid rounded mb-4" alt="Family in community">
+                <p data-i18n="guideDetails">Guide: Register your family, add members with details, assign duties. Track progress via the dashboard. Assisted entry available via Intore mu Ikoranabuhanga.</p>
+            </div>
+            <div class="col-md-6">
+    <div class="ratio ratio-16x9">
+        <iframe 
+            src="https://www.youtube.com/embed/1cmTBB40ZQ8" 
+            title="Sample Guide Video" 
+            allowfullscreen 
+            referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Social Media Feeds Section -->
+<section class="social-feeds bg-light py-5">
+    <div class="container">
+        <h2 data-i18n="socialTitle" class="text-center mb-4">Social Media Updates</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>X (Twitter) Feed</h4>
+                <a class="x-timeline" data-height="400" href="https://x.com/RwandaGender">Tweets by RwandaGender</a>
+                <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="col-md-6">
+                <h4>Facebook Feed</h4>
+                <div id="fb-root"></div>
+                <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0"></script>
+                <div class="fb-page" data-href="https://www.facebook.com/RwandaGov" data-tabs="timeline" data-width="" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/RwandaGov" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/RwandaGov">RwandaGov</a></blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="py-4 text-center">
+    <small>© 2025 DUHIGURE MU MIRYANGO</small>
+</footer>
+
+<script>
+    /* THEME */
+    const root = document.documentElement;
+    if (localStorage.theme) root.dataset.theme = localStorage.theme;
+    document.getElementById("themeToggle").onclick = () => {
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        localStorage.theme = root.dataset.theme;
+        document.querySelectorAll('.guide-section, .social-feeds').forEach(el => el.classList.toggle('bg-dark', root.dataset.theme === 'dark'));
+    };
+
+    /* LANGUAGE */
+    const t = {
+        en: {
+            title: "DUHIGURE MU MIRYANGO",
+            subtitle: "Family-Level Performance Contract System",
+            enter: "Enter System",
+            f1: "Family Registration",
+            f2: "Performance Duties",
+            f3: "Progress Tracking",
+            guideTitle: "About the Program & System Guide",
+            guideText: "DUHIGURE MU MIRYANGO is a family-based performance contract system aimed at developing communities in Kibungo sector. Families set shared goals (imihigo) and individual duties to achieve collective progress. The system is scalable to NGOMA District and beyond.",
+            guideDetails: "Guide: Register your family, add members with details, assign duties. Track progress via the dashboard. Assisted entry available via Intore mu Ikoranabuhanga.",
+            socialTitle: "Social Media Updates"
+        },
+        rw: {
+            title: "DUHIGURE MU MIRYANGO",
+            subtitle: "Sisitemu y’Imihigo ku Muryango",
+            enter: "Injira muri Sisitemu",
+            f1: "Kwiyandikisha kw’Umuryango",
+            f2: "Inshingano z’Imihigo",
+            f3: "Gukurikirana Iterambere",
+            guideTitle: "Ku Icyiciro & Icyerekezo cy’Sisitemu",
+            guideText: "DUHIGURE MU MIRYANGO ni sisitemu y’imihigo ku muryango yerekeye kwesa imirimo y’abaturage muri sektieri ya Kibungo. Imiryango ishyiraho ibikorwa bya hamwe n’iby’abantu ku giti cyabo. Sisitemu irashobora kwaguka muri Distiriki ya NGOMA no muri igihugu cyose.",
+            guideDetails: "Icyerekezo: Iyandikishe umuryango wawe, ongeraho abagize umuryango n’amakuru yabo, shyiraho ibikorwa. Kurikira iterambere ry’umuryango. Ibyo birashobora gufashwa n’Intore mu Ikoranabuhanga.",
+            socialTitle: "Ibikorwa ry’Ibyamakuru ry’Amajambo"
+        }
+    };
+    document.getElementById("lang").onchange = e => {
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            el.textContent = t[e.target.value][el.dataset.i18n];
+        });
+    };
+
+
+    // Check login status
+    if (localStorage.getItem('loggedIn') !== 'true') {
+        window.location.href = 'login.html';
+    }
+
+    // Add logout button in navbar (optional)
+    document.querySelector('.navbar .container-fluid').insertAdjacentHTML('beforeend', `
+        <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+    `);
+
+    function logout() {
+        localStorage.removeItem('loggedIn');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('username');
+        window.location.href = 'login.html';
+    }
+
+    // Optional: Display welcome message
+    const username = localStorage.getItem('username');
+    const role = localStorage.getItem('userRole');
+    if (username) {
+        document.querySelector('.navbar-brand').insertAdjacentHTML('afterend', `
+            <span class="navbar-text mx-3 text-light">Welcome, ${username} (${role})</span>
+        `);
+    }
+
+
+    
+</script>
+
 </body>
 </html>
